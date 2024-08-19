@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Contents method with filter method</title>
+    </head>
+    <body>
+        <h1>Welcome to <u>jQuery</u></h1>
+
+        <h2>Welcome to <u>jQuery Library</u></h2>
+        <h2>Are you ready to learn <i>jQuery</i></h2>
+
+        <script src="libs/jquery-3.7.1.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                const gettext = $("h1").contents();
+                console.log(gettext);
+
+                const gettxt = $("h1").contents().text();
+                console.log(gettxt); // Welcome to jQuery
+
+                const gettexts = $("h1,h2").text();
+                console.log(gettexts); // Welcome to jQueryWelcome to jQuery Library
+
+                const gettxts = $("h1,h2").contents().text();
+                console.log(gettxts); // Welcome to jQueryWelcome to jQuery Library
+
+                const textvals = $("h1").contents().filter("u").text();
+                console.log(textvals); // jQuery
+
+                const txtvals = $("h1,h2").contents().filter("u,i").text();
+                console.log(txtvals); // jQueryjQuery LibraryjQuery
+
+                const gethtml = $("h1").contents().html();
+                console.log(gethtml); // undefined
+
+                const gethtmltxt = $("h1").contents().filter("u").html();
+                console.log(gethtmltxt); // jQuery
+
+                const gethtmltext = $("h2").html();
+                console.log(gethtmltext); // Welcome to <u>jQuery Library</u>
+            });
+        </script>
+    </body>
+</html>

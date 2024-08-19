@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<htmL>
+    <head>
+        <title>UI datepicker with input</title>
+        <link href=".\libs\jquery-ui-1.13.2.custom\jquery-ui-1.13.2.custom/jquery-ui.min.css" rel="stylesheet"/>
+        <style type="text/css">
+            *{
+                box-sizing: border-box;
+            }
+
+            body{
+                height: 100vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+               
+            }
+
+            .container{
+                width: 900px;
+                background-color: #f4f4f4;
+
+                padding: 20px;
+            }
+
+            .form-group label{
+                display: block;
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+
+            .form-group{
+                margin: 10px 0;
+            }
+
+            .form-control{
+                width: 100%;
+                font-size: 20px;
+                padding: 5px;
+            }
+
+            .justify-content-end{
+                display: flex;
+                justify-content: end;
+            }
+
+            .btn{
+                font-size: 15px;
+                padding: 10px 20px;
+                margin-top: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <form action="" method="">
+                <div class="form-group">
+                    <label for="arrival">Arrival Date</label>
+                    <input type="text" name="arrival" id="arrival" class="form-control" readonly/>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingstart">Booking Start Date</label>
+                    <input type="text" name="bookingstart" id="bookingstart" class="form-control" readonly/>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingend">Booking End Date</label>
+                    <input type="text" name="bookingend" id="bookingend" class="form-control" readonly/>
+                </div>
+
+                <div class="justify-content-end">
+                    <button type="submit" id="btn" class="btn">Submit</button>
+                </div>
+            </form>
+        </div>
+
+     
+
+        <script src="./libs/jquery-3.7.1.min.js" type="text/javascript"></script>
+        <script src=".\libs\jquery-ui-1.13.2.custom\jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+
+        <script type="text/javascript">
+        
+
+        $(document).ready(function(){
+
+            $('#arrival').datepicker({
+                // numberOfMonths:2,
+                                // row,month 
+                // numberOfMonths:[2,3],
+
+                // showAnim:"slide",
+                showAnim:"slideDown",
+                // duration:2000,
+
+                dayNamesMin:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
+
+                // changeMonth:true,
+                // changeYear:true
+
+                // minDate : 0, //start from today today is index 0
+                // maxDate : 2,
+                    //m d y
+                minDate : "03/10/2024",
+                maxDate : "04/20/2024 ",
+            });
+
+            $("#bookingstart").datepicker({
+                numberOfMonth:1,
+                showAnim:"slideDown",
+                dateFormat:"dd-mm-yy",
+
+                onClose:function(selectdate){
+                    $("#bookingend").datepicker("option","minDate",selectdate);
+                }
+            });
+
+            $("#bookingend").datepicker({
+                numberOfMonth:1,
+                showAnim:"slideDown",
+                dateFormat:"dd-mm-yy",
+
+                onClose:function(selectdate){
+                    $("#bookingstart").datepicker("option","maxDate",selectdate);
+                }
+            });
+        })    
+        </script>
+
+    </body>
+
+</htmL>

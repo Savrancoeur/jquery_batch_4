@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Parents Unit</title>
+        <style>
+            body {
+                height: 100vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                padding: 0;
+                margin: 0;
+            }
+
+            .container {
+                width: 900px;
+                background-color: #f4f4f4;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+                padding: 20px;
+            }
+
+            .div {
+                border: 1px solid #000;
+                padding: 30px;
+            }
+
+            ul {
+                border: 1px dashed green;
+                padding: 20px;
+            }
+
+            ul li {
+                border: 1px solid violet;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="div1" class="div">
+                I am in Div1
+
+                <div id="div2" class="div">
+                    I am in Div2
+
+                    <div id="div3" class="div">
+                        I am in Div3
+
+                        <ul>
+                            <li>
+                                <h1>Hello Box 1</h1>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="cls-btn">Close Button</button>
+
+            <button type="button" id="parent-btn">Parents Unit Button</button>
+        </div>
+
+        <script src="libs/jquery-3.7.1.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // => closest()
+                $("#cls-btn").click(function () {
+                    $("h1").closest("div").css({
+                        color: "blue",
+                        "font-size": "30px",
+                        border: "3px dashed red",
+                    });
+                });
+
+                // => parentsUntil()
+                $("#parent-btn").click(function () {
+                    // $("h1").parentsUntil("ul").css({
+                    //     color: "blue",
+                    //     "font-size": "30px",
+                    //     border: "3px dashed red",
+                    // });
+
+                    // $("h1").parentsUntil("div").css({
+                    //     color: "blue",
+                    //     "font-size": "30px",
+                    //     border: "3px dashed red",
+                    // });
+
+                    $("h1").parentsUntil(".container").css({
+                        color: "blue",
+                        "font-size": "30px",
+                        border: "3px dashed red",
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

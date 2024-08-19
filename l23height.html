@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Height</title>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+            }
+
+            .container {
+                display: flex;
+            }
+
+            .box1 {
+                width: 100px;
+                height: 100px;
+
+                border: 5px solid #000;
+
+                padding: 10px;
+                margin: 5px;
+            }
+
+            .box2 {
+                width: 100px;
+                height: 200px;
+            }
+
+            .box3 {
+                width: 100px;
+                height: 300px;
+            }
+
+            .box4 {
+                width: 100px;
+                height: 400px;
+            }
+
+            .box5 {
+                width: 100px;
+                height: 500px;
+            }
+
+            .red {
+                background-color: red;
+            }
+
+            .green {
+                background-color: green;
+            }
+
+            .orange {
+                background-color: orange;
+            }
+
+            .blue {
+                background-color: blue;
+            }
+
+            .violet {
+                background-color: violet;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box1 red">Box 1</div>
+            <div class="box2 green">Box 2</div>
+            <div class="box3 orange">Box 3</div>
+            <div class="box4 blue">Box 4</div>
+            <div class="box5 violet">Box 5</div>
+        </div>
+
+        <script src="libs/jquery-3.7.1.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".box1").click(function () {
+                    console.log("Box1 width = " + $(this).height()); // 100
+                    console.log("Box1 inner height = " + $(this).innerHeight()); // 120   height+padding
+                    console.log("Box1 outer height = " + $(this).outerHeight()); // 130   height+padding+border
+                });
+
+                $(".box2").click(function () {
+                    console.log("Box2 height = " + $(this).height()); // 200
+                    console.log("Box2 inner height = " + $(this).innerHeight()); // 200
+                    console.log("Box2 outer height = " + $(this).outerHeight()); // 200
+                });
+
+                $(".box3").click(function () {
+                    console.log("Box3 height = " + $(this).height()); // 300
+                    console.log("Box3 inner height = " + $(this).innerHeight()); // 300
+                    console.log("Box3 outer height = " + $(this).outerHeight()); // 300
+                });
+
+                $(".box4").click(function () {
+                    console.log("Box4 height = " + $(this).height()); // 400
+                    console.log("Box4 inner height = " + $(this).innerHeight()); // 400
+                    console.log("Box4 outer height = " + $(this).outerHeight()); // 400
+                });
+
+                $(".box5").click(function () {
+                    console.log("Box5 height = " + $(this).height()); // 500
+                    console.log("Box5 inner height = " + $(this).innerHeight()); // 500
+                    console.log("Box5 outer height = " + $(this).outerHeight()); // 500
+                });
+            });
+        </script>
+    </body>
+</html>

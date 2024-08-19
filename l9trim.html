@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Trim</title>
+        <style>
+            body {
+                height: 100vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container {
+                width: 500px;
+                background-color: #f4f4f4;
+
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="libs/jquery-3.7.1.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                let greeting = "Welcome to jQuery Lesson";
+                console.log(greeting);
+
+                let something = "    Welcome to jQuery Lesson      ";
+                console.log(something); //     Welcome to jQuery Lesson
+
+                something = $.trim(something);
+                console.log(something); //Welcome to jQuery Lesson
+
+                let welcome = "\n\n     Welcome to jQuery Lesson      \n\n";
+                console.log(welcome); //     Welcome to jQuery Lesson
+
+                welcome = jQuery.trim(welcome);
+                console.log(welcome); //Welcome to jQuery Lesson
+            });
+        </script>
+    </body>
+</html>

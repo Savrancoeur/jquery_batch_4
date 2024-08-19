@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<htmL>
+    <head>
+        <title>UI dialog method</title>
+        <link href=".\libs\jquery-ui-1.13.2.custom\jquery-ui-1.13.2.custom/jquery-ui.min.css" rel="stylesheet"/>
+        <style type="text/css">
+
+
+
+        </style>
+    </head>
+    <body>
+        <div id="dbox" title="How to use jQuery ?">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+
+        <button type="button" id="btn">Click Me</button>
+        <button type="button" id="toggle-btn">Toggle Button</button>
+
+
+     
+
+        <script src="./libs/jquery-3.7.1.min.js" type="text/javascript"></script>
+        <script src=".\libs\jquery-ui-1.13.2.custom\jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+
+        <script type="text/javascript">
+        
+
+        $(document).ready(function(){
+        
+            $("#dbox").dialog({
+                autoOpen:false,
+                width:400,
+                height:200,
+                title:"Are you ready to use jQuery UI ?",
+                hide:"slideUp",
+                show:"slideDown",  //slide
+                position:{
+                    // at:"left"
+                    // at:"right"
+                    // at:"left top"
+                    // at:"left bottom"
+                    // at:"right top"
+                    // at:"right bottom"
+                    // at:"top"
+                    // at:"bottom"
+                }
+
+
+            }).css({
+                "background-color":"gray",
+                "color":"#fff"
+            });
+
+            $('#btn').click(function(){
+                    $("#dbox").dialog("open");
+            });
+
+            $("#toggle-btn").click(function(){
+                $("#dbox").dialog('isOpen') === true ? $('#dbox').dialog('close') : $('#dbox').dialog('open');
+            });
+            
+
+         
+        })    
+        </script>
+
+    </body>
+
+</htmL>
